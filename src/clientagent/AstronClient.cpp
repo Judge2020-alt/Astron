@@ -625,8 +625,7 @@ class AstronClient : public Client, public NetworkHandler
         }
 
         // Update the object's location
-        uint8 dummy_channel = 0;
-        DatagramPtr dg = Datagram::create(do_id, dummy_channel, STATESERVER_OBJECT_SET_LOCATION);
+        DatagramPtr dg = Datagram::create(do_id, 0, STATESERVER_OBJECT_SET_LOCATION);
         dg->add_doid(dgi.read_doid()); // Parent
         dg->add_zone(dgi.read_zone()); // Zone
         route_datagram(dg);
